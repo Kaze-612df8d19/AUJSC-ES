@@ -265,7 +265,7 @@
         <input type="text" id="email" placeholder="Email" required>
         <input type="text" id="adress" placeholder="Home address" required>
         <input type="text" id="contact" placeholder="#Contact Number" required>
-        <button onclick="step2()">Log In</button>
+        <button onclick="step2()">Continue</button>
       </div>
 
       <div id="step2" style="display: none;">
