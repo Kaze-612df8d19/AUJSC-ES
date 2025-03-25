@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AU-JSC Online Enrollment System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #12253a;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #1f4068;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #f05454;
+      text-transform: uppercase;
+    }
+
+    header h2 {
+      font-size: 1.5rem;
+      margin: 5px 0 0;
+      color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #1f4068;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #f05454;
+    }
+
+    main {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .section {
+      margin: 20px auto;
+      padding: 15px;
+      border: 2px solid #f05454;
+      border-radius: 10px;
+      max-width: 600px;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    .section h3 {
+      color: #f05454;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #1f4068;
+      text-align: center;
+      padding: 10px;
+      color: #f5f5f5;
+      font-size: 0.9rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    button {
+      background-color: #1f4068;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    button:hover {
+      background-color: #f05454;
+    }
+
+    input, select {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 90%;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        width: 90%;
+      }
+
+      button, input, select {
+        width: 100%;
+      }
+    }
+
+    .fade {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .banner-container {
+      position: fixed;
+      top: -5px;
+      right: -15px;
+      width: 500px;
+      height: 975px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+   .new-box {
+      display: none; 
+      width: 90%; 
+      max-width: 578px; 
+      background-color: #ffffff;
+      border: 3px solid #f05454;
+      border-radius: 10px;
+      padding: 25px;
+      margin: 1px auto;
+      text-align: center;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+      height: 450px; 
+      position: relative;
+      top: -15px; 
+    }
+
+    .new-box h3 {
+      color: #f05454;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .new-box p {
+      font-size: 1.2rem;
+      color: #000000;
+      line-height: 1.5;
+    }
+
+    .new-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 50px;
+      border: 2px solid #ffffff;
+    }
+
+    .school-banner {
+  background-image: url('https://www.arellano.edu.ph/sites/default/files/inline-images/au-main-sm.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  height: 975px; 
+  width: 100%; 
+  position: relative; 
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)); 
+}
+
+.home-box {
+  position: relative; 
+  z-index: 1; 
+}
+
+.side-buttons {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 10; 
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+}
+
+  </style>
+</head>
+<body>
+	<header style="display: flex; align-items: center; justify-content: space-between; padding: 10px; background-color: #00274d;">
+		<div style="display: flex; align-items: center;">
+		  <img src="https://upload.wikimedia.org/wikipedia/en/8/8b/Arellano_University_logo.png" alt="Arellano University Logo" style="width: 60px; height: 60px; border-radius: 50%; margin-right: 15px;">
+		  <div style="color: white;">
+			<h1 style="margin: 0; font-size: 24px;">ARELLANO UNIVERSITY ENROLLMENT SYSTEM</h1>
+			<h2 style="margin: 0; font-size: 16px;">An Online Enrollment System that's being developed for future use in AU-JSC</h2>
+		  </div>
+		</div>
+	  </header>
+	  
+
+  <nav>
+    <ul>
+      <li><a href="#" onclick="showHome()">Home</a></li>
+      <li><a href="#" onclick="showSubjects()">Members</a></li>
+      <li><a href="#" onclick="showSimulation()">Enroll</a></li>
+      <li><a href="#" onclick="showAnalysis()">Analysis</a></li>
+    </ul>
+  </nav>
+
+  <main id="content">
+    <div class="section" id="home">
+      <h3>Welcome!</h3>
+      <p>Explore our tools to analyze and improve the efficiency of online enrollment.</p>
+    </div>
+
+    <div class="section" id="subjects" style="display: none;">
+      <h3>Members</h3>
+      <ul>
+        <li>Aldover - Leader</li>
+        <li>Mendoza - Co-Leader</li>
+        <li>Canales</li>
+        <li>Dosdos</li>
+        <li>Padillo</li>
+        <li>Roldan</li>
+        <li>Palomata</li>
+        <li>Hufano - Special Mention</li>
+      </ul>
+    </div>
+
+    <div class="section" id="simulation" style="display: none;">
+      <h3>Online Enrollment Process</h3>
+
+      <div id="step1">
+        <h4>Step 1: Enter Credentials</h4>
+        <p>Enter your Informations:</p>
+        <input type="text" id="username" placeholder="Full name" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="text" id="email" placeholder="Email" required>
+        <input type="text" id="adress" placeholder="Home address" required>
+        <input type="text" id="contact" placeholder="#Contact Number" required>
+        <button onclick="step2()">Continue</button>
+      </div>
+
+      <div id="step2" style="display: none;">
+        <h4>Step 2: Select Program</h4>
+        <p>Choose the program you want to enroll in:</p>
+        <select id="program">
+            <option value="Computer Science">Computer Science</option>
+            <option value="Business Administration">Business Administration</option>
+            <option value="Education & Law">Education & Law</option>
+        </select>
+        <button onclick="step3()">Next</button>
+      </div>
+
+      <div id="step3" style="display: none;">
+        <h4>Step 3: Select Courses</h4>
+        <p>Select the courses you want to enroll in:</p>
+        <div style="text-align: left; margin: 1000 auto; max-width: 300px;">
+          <label>
+			<label>
+				<input type="checkbox" id="course1" value="Math 101"> Informations and technology
+			  </label><br>
+			  <label>
+				<input type="checkbox" id="course2" value="English 101"> HUMMS
+			  </label><br>
+                      <label>
+                          <input type="checkbox" id="course3" value="Science 101"> Business and Management
+                      </label><br>			  
+        </div>
+        <button onclick="step4()">Next</button>
+      </div>
+
+      <div id="step4" style="display: none;">
+        <h4>Step 4: Payment</h4>
+        <p>Confirm your payment for the selected courses</p>
+        <button onclick="step5()">Confirm Payment</button>
+      </div>
+
+      <div id="step5" style="display: none;">
+        <h4>Step 5: Confirmation</h4>
+        <p>Your enrollment has been processed successfully!</p>
+		<p>Thank you for enrolling in Arellano University!</p>
+        <p id="result">Thank you for enrolling in Arellano University!</p>
+      </div>
+    </div>
+
+	<div class="section" id="analysis" style="display: none;">
+		<h3>Efficiency Analysis of Online Enrollment</h3>
+		<p>The charts below show metrics such as average enrollment time, user satisfaction rates, and completion percentages.</p>
+		
+		<canvas id="enrollmentTimeChart" width="400" height="200"></canvas>
+		<canvas id="completionRateChart" width="400" height="200"></canvas>
+	  </div>	  
+
+    <div class="side-buttons">
+      <button onclick="alert('Contact Support: support@https://www.arellano.edu.ph/contact/overview/')">Contact Support</button>
+      <button onclick="alert('FAQ Section coming soon!')">FAQ</button>
+      <button onclick="alert('Terms of Service coming soon!')">Terms of Service</button>
+      <button onclick="alert('Instructions Section coming soon!')">Instructions</button>
+    </div>
+    
+  <div class="banner-container">
+    <div class="school-banner"></div>
+  </div>
+
+<div div id="home-box" class="new-box">
+  <h3>Important Announcement</h3>
+  <p>Enrollment for School Year 2025 - 2026 is currently on-going. Come join us!</p>
+  <img src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t39.30808-6/470197697_27822675297378763_271815469049283027_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeGLQ7uirpyq_frVVuKjn08bSm2zNe455uJKbbM17jnm4sqKGhhBkwreI56bQPLBAd2MlpdcnxdAgjNFHhFCeffA&_nc_ohc=jDPELHM4sWUQ7kNvgHIzHx8&_nc_oc=AdiCI_XLbSQhJ0TEkIYTjdaNDCBy-oH9DSqI3ZPl-vjIo6vh3It-IgSPxUxQb_g6ezY&_nc_zt=23&_nc_ht=scontent.fmnl4-1.fna&_nc_gid=AjEQJ3BsSQbJcf0HeCMsA4_&oh=00_AYDUaI4cW5CKJoNAoIaFmiGbj6zXTDgsJM-REmdpoiFVxg&oe=67BD31C4" alt="Enrollment Announcement">
+</div>
+
+</main>
+
+  <footer>
+    &copy;Arellano University | Group 4 PR
+  </footer>
+
+  <script>
+    function showHome() {
+      document.getElementById("home").style.display = "block";
+      document.getElementById("subjects").style.display = "none";
+      document.getElementById("simulation").style.display = "none";
+      document.getElementById("analysis").style.display = "none";
+      document.querySelector('.side-buttons').style.display = 'flex';
+      document.querySelector('.side-buttons').style.flexDirection = 'column';
+      document.getElementById("home-box").style.display = "block";
+      document.getElementById("about").style.display = "block";
+      document.getElementById("contact").style.display = "block";
+      document.getElementById("help").style.display = "block";
+    }
+
+    function showSubjects() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("subjects").style.display = "block";
+      document.getElementById("simulation").style.display = "none";
+      document.getElementById("analysis").style.display = "none";
+      document.querySelector('.side-buttons').style.display = 'flex';
+      document.querySelector('.side-buttons').style.flexDirection = 'column';
+      document.getElementById("home-box").style.display = "none";
+      document.getElementById("about").style.display = "none";
+      document.getElementById("contact").style.display = "none";
+      document.getElementById("help").style.display = "none";
+    }
+
+    function showSimulation() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("subjects").style.display = "none";
+      document.getElementById("simulation").style.display = "block";
+      document.getElementById("analysis").style.display = "none";
+      document.getElementById("home-box").style.display = "none";
+      document.getElementById("about").style.display = "none";
+      document.getElementById("contact").style.display = "none";
+      document.getElementById("help").style.display = "none";
+      document.querySelector('.side-buttons').style.display = 'none';
+    }
+
+    function showAnalysis() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("subjects").style.display = "none";
+      document.getElementById("simulation").style.display = "none";
+      document.getElementById("analysis").style.display = "block";
+      document.getElementById("home-box").style.display = "none";
+      document.getElementById("about").style.display = "none";
+      document.getElementById("contact").style.display = "none";
+      document.getElementById("help").style.display = "none";
+      document.querySelector('.side-buttons').style.display = 'none';
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      showHome();
+    });
+
+    function showAbout() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("about").style.display = "block";
+      document.querySelector('.side-buttons').style.display = 'none';
+    }
+
+    function showContact() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("contact").style.display = "block";
+      document.querySelector('.side-buttons').style.display = 'none';
+    }
+
+    function showHelp() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("help").style.display = "block";
+      document.querySelector('.side-buttons').style.display = 'none';
+    }
+    
+	function step2() {
+	  const username = document.getElementById("username").value;
+	  const password = document.getElementById("password").value;
+  
+	  if (username.length < 4 || password.length < 6) {
+		alert("Username must be at least 4 characters and password must be at least 6 characters long.");
+		return;
+	  }
+  
+	  if (username && password) {
+		document.getElementById("step1").classList.remove('fade');
+		document.getElementById("step1").style.display = "none";
+		document.getElementById("step2").classList.add('fade');
+		document.getElementById("step2").style.display = "block";
+	  } else {
+		alert("Please enter both username and password!");
+	  }
+	}
+  
+	function step3() {
+	  const program = document.getElementById("program").value; 
+	  if (!program) {
+		alert("Please select a program before proceeding.");
+		return;
+	  }
+  
+	  document.getElementById("step2").style.display = "none"; 
+	  document.getElementById("step3").style.display = "block"; 
+	}
+  
+	function validateCoursesAndProceed() {
+	  const course1Checked = document.getElementById("course1").checked;
+	  const course2Checked = document.getElementById("course2").checked;
+	  const course3Checked = document.getElementById("course3").checked;
+  
+	  if (course1Checked || course2Checked || course3Checked) {
+		document.getElementById("step3").style.display = "none";
+		document.getElementById("step4").style.display = "block";
+	  } else {
+		alert("Please select at least one course.");
+	  }
+	}
+  
+	function step4() {
+	  document.getElementById("step3").classList.remove('fade');
+	  document.getElementById("step3").style.display = "none";
+	  document.getElementById("step4").classList.add('fade');
+	  document.getElementById("step4").style.display = "block";
+	}
+  
+	function step5() {
+	  document.getElementById("step4").classList.remove('fade');
+	  document.getElementById("step4").style.display = "none";
+	  document.getElementById("step5").classList.add('fade');
+	  document.getElementById("step5").style.display = "block";
+  
+	  const selectedCourses = [];
+	  if (document.getElementById("course1").checked) selectedCourses.push("Math 101");
+	  if (document.getElementById("course2").checked) selectedCourses.push("English 101");
+	  if (document.getElementById("course3").checked) selectedCourses.push("Science 101");
+  
+	  document.getElementById("result").innerHTML = `You have successfully enrolled in: ${selectedCourses.join(", ")}.`;
+	}
+  </script>  
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  function showAnalysis() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("subjects").style.display = "none";
+    document.getElementById("simulation").style.display = "none";
+    document.getElementById("analysis").style.display = "block";
+
+    const ctx1 = document.getElementById('enrollmentTimeChart').getContext('2d');
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'],
+        datasets: [{
+          label: 'Average Time (seconds)',
+          data: [30, 20, 15, 25, 10],
+          backgroundColor: 'rgba(240, 84, 84, 0.7)',
+          borderColor: 'rgba(240, 84, 84, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Average Time Spent Per Enrollment Step'
+          }
+        }
+      }
+    });
+
+    const ctx2 = document.getElementById('completionRateChart').getContext('2d');
+    new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: ['Completed', 'Incomplete'],
+        datasets: [{
+          data: [85, 15],
+          backgroundColor: ['rgba(63, 191, 127, 0.7)', 'rgba(255, 99, 132, 0.7)']
+        }]
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Enrollment Completion Rate'
+          }
+        }
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
